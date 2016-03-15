@@ -485,8 +485,11 @@
                 "phone": {
                     required: true,
                     number:true,
-                    minlength: 5,
-                    maxlength: 5
+                    minlength: 9,
+                    maxlength: 9
+                },
+                "message": {
+                    required: true
                 }
             },
             messages: {
@@ -494,14 +497,17 @@
                     required: "Introduce tu nombre."
                 },
                 "email": {
-                    required: "Introduce tu correo.",
-                    email: ""
+                    required: "Introduce tu email.",
+                    email: "Introduce un email valido."
                 },
                 "phone": {
-                    required: "Introduce tu código postal.",
-                    number: "Introduce un código postal válido.",
-                    maxlength: "Debe contener 5 dígitos.",
-                    minlength: "Debe contener 5 dígitos."
+                    required: "Introduce tu numero de teléfono.",
+                    number: "Introduce un numero válido.",
+                    maxlength: "Debe contener 9 dígitos.",
+                    minlength: "Debe contener 9 dígitos."
+                },
+                "message": {
+                    required: "Introduce un mensaje."
                 }
             }
  
