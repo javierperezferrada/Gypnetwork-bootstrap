@@ -82,13 +82,17 @@
             position: absolute;
             top: 25%;
             left: 25%;
-            width: 50%;
-            height: 50%;
+            width: 61%;
+            height: 7%;
             padding: 16px;
-            border: 16px solid orange;
+            border: 1px solid white;
             background-color: white;
             z-index:1002;
             overflow: auto;
+        }
+        #buttom-accept{
+          margin: 0 auto;
+          width: 30px;
         }
         #light-response{
           z-index:1003;
@@ -333,6 +337,16 @@
         </div>
       </div>
     </div>
+    <!-- popup respuesta mensaje contacto -->
+    <div id="light" class="white_content">
+      <div id='light-response'></div> 
+      <div id='buttom-accept'><a href = "/" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" class="btn btn-info">Aceptar</a></div>
+    </div>
+    <div id="fade" class="black_overlay"></div>
+
+
+
+
 <!--footer start-->
     <footer class="footer">
       <div class="container">
@@ -458,11 +472,7 @@
         </div>
     </footer>
     <!--small footer end-->
-    <div id="light" class="white_content">
-      <div id='light-response'></div> 
-      <div ><a href = "/" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" class="btn btn-info">Aceptar</a></div>
-    </div>
-    <div id="fade" class="black_overlay"></div>
+
 
 
     <!-- js placed at the end of the document so the pages load faster -->

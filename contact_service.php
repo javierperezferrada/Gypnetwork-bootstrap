@@ -9,7 +9,7 @@
   $subject = "Mensaje enviado por: ".$_POST['name'];
   $bool = @mail('gypnetwork.info@gmail.com',$subject,$message);
   if($bool){
-	    echo "<p>Mensaje enviado</p>";
+	    echo "<p>Mensaje enviado correctamente, Nuestro equipo técnico se comunicará con usted dentro de las próximas 24 horas.";
 	}else{
 	    echo "<p>Mensaje no enviado</p>";
 	}
