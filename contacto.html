@@ -63,6 +63,37 @@
     <script src="js/respond.min.js">
     </script>
     <![endif]-->
+    <style>
+        .black_overlay{
+            display: none;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index:1001;
+            -moz-opacity: 0.8;
+            opacity:.80;
+            filter: alpha(opacity=80);
+        }
+        .white_content {
+            display: none;
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            width: 50%;
+            height: 50%;
+            padding: 16px;
+            border: 16px solid orange;
+            background-color: white;
+            z-index:1002;
+            overflow: auto;
+        }
+        #light-response{
+          z-index:1003;
+        }
+    </style>
   </head>
 
   <body>
@@ -170,7 +201,7 @@
             ESCRÍBANOS PARA QUE PODEMOS SABER DE USTED
           </h4>
           <div class="contact-form">
-            <form role="form" action="contact_service.php" method="post" id='register'>
+            <form role="form" method="post" id='register'>
               <div class="form-group">
                 <label for="name">
                   Nombre
@@ -428,6 +459,11 @@
         </div>
     </footer>
     <!--small footer end-->
+    <div id="light" class="white_content">
+      <div id='light-response'></div> 
+      <div ><a href = "/" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" class="btn btn-info">Aceptar</a></div>
+    </div>
+    <div id="fade" class="black_overlay"></div>
 
 
     <!-- js placed at the end of the document so the pages load faster -->
@@ -463,6 +499,10 @@
 
     <script>
       $(document).ready(function() {
+        $("#register").submit(function(e) {
+
+            
+        });
         //Set the carousel options
         $('#quote-carousel').carousel({
           pause: true,
@@ -509,7 +549,23 @@
                 }
             },
             submitHandler: function(form) {
-            form.submit();
+            var url = "contact_service.php"; // the script where you handle the form input.
+
+            $.ajax({
+                   type: "POST",
+                   url: url,
+                   data: $("#register").serialize(), // serializes the form's elements.
+                   success: function(data)
+                   {  
+                      $('#light-response').append(data);
+                      $('#light').css('display','block');
+                      $('#fade').css('display','block');
+                       //alert(data); // show response from the php script.
+                   }
+                 });
+            $('#register')[0].reset();
+
+            e.preventDefault(); // avoid to execute the actual submit of the form.
             }
  
         });

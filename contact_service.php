@@ -7,5 +7,10 @@
   $to= "javier_dc2@hotmail.com";
   $from = $_POST['email'];
   $subject = "Mensaje enviado por: ".$_POST['name'];
-  @mail('gypnetwork.info@gmail.com',$subject,$message);
+  $bool = @mail('gypnetwork.info@gmail.com',$subject,$message);
+  if($bool){
+	    echo "<p>Mensaje enviado</p>";
+	}else{
+	    echo "<p>Mensaje no enviado</p>";
+	}
 ?>
