@@ -473,6 +473,26 @@
     </footer>
     <!--small footer end-->
 
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Información</h4>
+                </div>
+                <div class="modal-body">
+                    <p id='server-response'></p>
+                    <p class="text-warning"><small>Nuestro equipo se contactará con usted dentro de las próximas 24 horas.</small></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='/'">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
     <!-- js placed at the end of the document so the pages load faster -->
@@ -508,6 +528,9 @@
 
     <script>
       $(document).ready(function() {
+        $(".btn").click(function(){
+            $("#myModal").modal('show');
+        });
         $("#register").submit(function(e) {
 
             
@@ -566,9 +589,8 @@
                    data: $("#register").serialize(), // serializes the form's elements.
                    success: function(data)
                    {  
-                      $('#light-response').append(data);
-                      $('#light').css('display','block');
-                      $('#fade').css('display','block');
+                      $('#server-response').append(data)
+                      $("#myModal").modal('show');
                        //alert(data); // show response from the php script.
                    }
                  });
