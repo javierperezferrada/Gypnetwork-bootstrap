@@ -198,11 +198,30 @@
 
                 // Imprimir los resultados en HTML
                 while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
-                    echo "\t<tr>\n";
-                    foreach ($line as $col_value) {
-                        echo "\t\t<td>$col_value</td>\n";
-                    }
-                    echo "\t</tr>\n";
+                    echo '<div class="thumbnail"><img class="img-responsive" src="img/productos/camara-domo-blanca.png" alt=""><div class="caption-full">
+                        <h4 class="pull-right">';
+                    echo $row[precio_neto]
+                    echo '</h4>
+                        <h4><a href="#">Cámara Domo HD 720P</a><!--189975-->
+                        </h4>
+                        <p>Excelente cámara analógica de circuito cerrado de televisión</p>
+                        <p>Con resolucion HD, sensor de 1/4 CMOS,resolución 720P (1280x720), lente de 3,6mm y visión nocturna de 20mts </p>
+                        <p>(cámara compatible solo con equipos DVR HD AHD)</p>
+                    </div>
+                    <!--
+                    <div class="ratings">
+                        <p class="pull-right">3 reviews</p>
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            4.0 estrellas
+                        </p>
+                    </div>
+                  -->
+                </div>';
                 }
 
                 // Liberar resultados
