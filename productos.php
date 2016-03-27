@@ -193,14 +193,14 @@
                 mysql_select_db('gypnetwo_gypnetwork') or die('No se pudo seleccionar la base de datos');
 
                 // Realizar una consulta MySQL
-                $query = 'SELECT * FROM Producto';
+                $query = 'SELECT valor_neto FROM Producto';
                 $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 
                 // Imprimir los resultados en HTML
                 while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
                     echo '<div class="thumbnail"><img class="img-responsive" src="img/productos/camara-domo-blanca.png" alt=""><div class="caption-full">
                         <h4 class="pull-right">';
-                    echo $row[precio_neto]
+                    echo $line["valor_neto"];
                     echo '</h4>
                         <h4><a href="#">Cámara Domo HD 720P</a><!--189975-->
                         </h4>
