@@ -104,7 +104,7 @@
                 // Imprimir los resultados en HTML
                 while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
                     echo '<div class="thumbnail"><img class="img-responsive" src="'.$line['imagen'].'" alt=""><div class="caption-full">
-                        <h4 class="pull-right">'.$line["valor_total"].'</h4>
+                        <h4 class="pull-right">$'.number_format($line["valor_total"], 0, ",", ".").'</h4>
                         <h4><a href="#">'.$line['nombre'].'</a>
                         </h4>
                         <p>'.$line['descripcion'].'</p>
@@ -123,8 +123,9 @@
                     </div>
                   -->
                 </div>';
-                }
 
+                }
+                
                 // Liberar resultados
                 mysql_free_result($result);
 
