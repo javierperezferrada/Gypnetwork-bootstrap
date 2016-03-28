@@ -2,6 +2,10 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
+    <?php
+    header('Content-Type: text/html; charset=UTF-8'); 
+    ?>
+
     <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
     <meta name="author" content="Javier Perez Ferrada" charset="utf-8">
     <meta name="keywords" content="instalacion, camaras, cctv, lan, redes, wifi,revisa tus camaras en tu dispositivo, inteligente, telefono, valdivia, region de los rios, los rios, cabaÃ±a segura, seguridad, servicios,  cableado estructurado, categoria 6e, certificacion"/>
@@ -85,14 +89,25 @@
 
             <div class="col-md-9">
 
-                <div class="thumbnail">
-                    <img class="img-responsive" src="img/productos/camara-domo-blanca.png" alt="">
-                    <div class="caption-full">
-                        <h4 class="pull-right">$14.990</h4>
-                        <h4><a href="#">Cámara Domo</a><!--183684-->
+                <?php
+                mysql_set_charset('utf8');
+                // Conectando, seleccionando la base de datos
+                $link = mysql_connect('localhost', 'gypnetwo_admin', 'k6yF7vc5l(3y')
+                    or die('No se pudo conectar: ' . mysql_error());
+                mysql_select_db('gypnetwo_gypnetwork') or die('No se pudo seleccionar la base de datos');
+
+                // Realizar una consulta MySQL
+                $query = 'SELECT valor_total,nombre,descripcion,imagen FROM Producto';
+
+                $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+
+                // Imprimir los resultados en HTML
+                while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+                    echo '<div class="thumbnail"><img class="img-responsive" src="'.$line['imagen'].'" alt=""><div class="caption-full">
+                        <h4 class="pull-right">$'.number_format($line["valor_total"], 0, ",", ".").'</h4>
+                        <h4><a href="#">'.$line['nombre'].'</a>
                         </h4>
-                        <p>Excelente cámara analógica de circuito cerrado de televisión</p>
-                        <p>Con resolucion de 600TVL, sensor de 1/4 CMOS, lente de 3,6mm y visión nocturna de 20mts </p>
+                        <p>'.$line['descripcion'].'</p>
                     </div>
                     <!--
                     <div class="ratings">
@@ -107,85 +122,16 @@
                         </p>
                     </div>
                   -->
-                </div>
-                <!--
-                <div class="well">
+                </div>';
 
-                    <div class="text-right">
-                        <a class="btn btn-success">Leave a Review</a>
-                    </div>
+                }
+                
+                // Liberar resultados
+                mysql_free_result($result);
 
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            Anonymous
-                            <span class="pull-right">10 days ago</span>
-                            <p>This product was great in terms of quality. I would definitely buy another!</p>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            Anonymous
-                            <span class="pull-right">12 days ago</span>
-                            <p>I've alredy ordered another one!</p>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            Anonymous
-                            <span class="pull-right">15 days ago</span>
-                            <p>I've seen some better than this, but not at this price. I definitely recommend this item.</p>
-                        </div>
-                    </div>
-
-                </div>
-              -->
-              <div class="thumbnail">
-                    <img class="img-responsive" src="img/productos/camara-domo-blanca.png" alt="">
-                    <div class="caption-full">
-                        <h4 class="pull-right">$19.990</h4>
-                        <h4><a href="#">Cámara Domo HD 720P</a><!--189975-->
-                        </h4>
-                        <p>Excelente cámara analógica de circuito cerrado de televisión</p>
-                        <p>Con resolucion HD, sensor de 1/4 CMOS,resolución 720P (1280x720), lente de 3,6mm y visión nocturna de 20mts </p>
-                        <p>(cámara compatible solo con equipos DVR HD AHD)</p>
-                    </div>
-                    <!--
-                    <div class="ratings">
-                        <p class="pull-right">3 reviews</p>
-                        <p>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            4.0 estrellas
-                        </p>
-                    </div>
-                  -->
-                </div>
+                // Cerrar la conexión
+                mysql_close($link);
+                ?>
 
             </div>
 
