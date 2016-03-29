@@ -36,13 +36,12 @@ $count = mysql_num_rows($result);
 
 if($count == 1){
 
- $_SESSION['loggedin'] = true;
- $_SESSION['username'] = $username;
- $_SESSION['start'] = time();
- $_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;
+	 $_SESSION['loggedin'] = true;
+	 $_SESSION['username'] = $username;
+	 $_SESSION['start'] = time();
+	 $_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;
 
-echo "Bienvenido! " . $_SESSION['username'];
-echo '<p><a href="logout.php">Salir</a></p>';
+	header("Location:admin-productos.php");
 
 }
  else {
