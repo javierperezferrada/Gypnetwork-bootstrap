@@ -42,12 +42,13 @@ if($count == 1){
  $_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;
 
 echo "Bienvenido! " . $_SESSION['username'];
+echo '<p><a href="logout.php">Salir</a></p>';
 
 }
  else {
  echo "Username o Password estan incorrectos.";
 
- echo "<a href='main_login.html'>Volver a Intentarlo</a>";
+ echo "<a href='ingresar'>Volver a Intentarlo</a>";
 }
 
 ?>
