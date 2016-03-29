@@ -41,7 +41,7 @@ if($count == 1){
 	 $_SESSION['start'] = time();
 	 $_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;
 
-	header("Location:admin-productos.php");
+	header("Location:administrador");
 
 }
  else {

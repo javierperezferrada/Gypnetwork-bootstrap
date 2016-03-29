@@ -39,8 +39,16 @@
   </head>
 
   <body>
-    <?php include('header.php'); ?>
+    <?php 
+    session_start();
 
+    if (isset($_SESSION['loggedin']) & $_SESSION['loggedin'] == true)
+    {
+      include('header-admin.php'); 
+    }else{
+      include('header.php');
+    }
+    ?>
     <!--breadcrumbs start-->
     <div class="breadcrumbs">
       <div class="container">

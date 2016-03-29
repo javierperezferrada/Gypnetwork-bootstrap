@@ -34,7 +34,7 @@ exit;
     <link rel="shortcut icon" href="img/favicon.png">
 
     <title>
-      Gypnetwork | Admin Productos
+      Gypnetwork | Administrador
     </title>
 
     <!-- Bootstrap core CSS -->
@@ -65,7 +65,16 @@ exit;
   </head>
 
   <body>
-   <?php include('header.php'); ?>
+   <?php 
+    session_start();
+
+    if (isset($_SESSION['loggedin']) & $_SESSION['loggedin'] == true)
+    {
+      include('header-admin.php'); 
+    }else{
+      include('header.php');
+    }
+    ?>
 
     <!--breadcrumbs start-->
     <div class="breadcrumbs">
