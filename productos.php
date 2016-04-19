@@ -90,9 +90,10 @@
             <div class="col-md-3">
                 <p class="lead">Nuestros principales productos</p>
                 <div class="list-group">
+                                      <!--
                     <a href="#" class="list-group-item active">Cámaras</a>
                     <a href="#" class="list-group-item">Alarmas</a>
-                    <a href="#" class="list-group-item">Redes</a>
+                    <a href="#" class="list-group-item">Redes</a>-->
                 </div>
             </div>
 
@@ -150,7 +151,16 @@
     <!-- /.container -->
 
 
-    <?php include('footer.php'); ?>
+    <?php 
+    session_start();
+
+    if (isset($_SESSION['loggedin']) & $_SESSION['loggedin'] == true)
+    {
+      include('footer-admin.php'); 
+    }else{
+      include('footer.php');
+    }
+    ?>
 
 
  <!-- js placed at the end of the document so the pages load faster

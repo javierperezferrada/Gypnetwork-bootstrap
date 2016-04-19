@@ -82,23 +82,15 @@ exit;
         <div class="row">
           <div class="col-lg-4 col-sm-4">
             <h1>
-              Table
+              Administrador
             </h1>
           </div>
           <div class="col-lg-8 col-sm-8">
             <ol class="breadcrumb pull-right">
               <li>
-                <a href="#">
-                  Home
+                <a href="/">
+                  Gypnetwork Ltda
                 </a>
-              </li>
-              <li>
-                <a href="#">
-                  Features
-                </a>
-              </li>
-              <li class="active">
-                Table
               </li>
             </ol>
           </div>
@@ -113,491 +105,35 @@ exit;
 
         <div class="bs-docs-section">
           <h1 id="tables" class="page-header">
-            Tables
+            Productos
           </h1>
-
-          <h2 id="tables-example">
-            Basic example
-          </h2>
           <p>
-            For basic styling&mdash;light padding and only horizontal dividers&mdash;add the base class
-            <code>
-              .table
-            </code>
-            to any
-            <code>
-              &lt;table&gt;
-            </code>
-            . It may seem super redundant, but given the widespread use of tables for other plugins like calendars and date pickers, we've opted to isolate our custom table styles.
+            En esta sección de la aplicación web, usted puede agregar, editar o eliminar, los productos que se muestran en su sitio web.
           </p>
-          <div class="bs-example">
-            <table class="table">
+          <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
               <thead>
-                <tr>
-                  <th>
-                    #
-                  </th>
-                  <th>
-                    First Name
-                  </th>
-                  <th>
-                    Last Name
-                  </th>
-                  <th>
-                    Username
-                  </th>
-                </tr>
+                  <tr>
+                      <th>Name</th>
+                      <th>Position</th>
+                      <th>Office</th>
+                      <th>Extn.</th>
+                      <th>Start date</th>
+                      <th>Salary</th>
+                  </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    1
-                  </td>
-                  <td>
-                    Mark
-                  </td>
-                  <td>
-                    Otto
-                  </td>
-                  <td>
-                    @mdo
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    2
-                  </td>
-                  <td>
-                    Jacob
-                  </td>
-                  <td>
-                    Thornton
-                  </td>
-                  <td>
-                    @fat
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    3
-                  </td>
-                  <td>
-                    Larry
-                  </td>
-                  <td>
-                    the Bird
-                  </td>
-                  <td>
-                    @twitter
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <!-- /example -->
-
-
-
-          <h2 id="tables-striped">
-            Striped rows
-          </h2>
-          <p>
-            Use
-            <code>
-              .table-striped
-            </code>
-            to add zebra-striping to any table row within the
-            <code>
-              &lt;tbody&gt;
-            </code>
-            .
-          </p>
-
-          <div class="bs-example">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>
-                    #
-                  </th>
-                  <th>
-                    First Name
-                  </th>
-                  <th>
-                    Last Name
-                  </th>
-                  <th>
-                    Username
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    1
-                  </td>
-                  <td>
-                    Mark
-                  </td>
-                  <td>
-                    Otto
-                  </td>
-                  <td>
-                    @mdo
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    2
-                  </td>
-                  <td>
-                    Jacob
-                  </td>
-                  <td>
-                    Thornton
-                  </td>
-                  <td>
-                    @fat
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    3
-                  </td>
-                  <td>
-                    Larry
-                  </td>
-                  <td>
-                    the Bird
-                  </td>
-                  <td>
-                    @twitter
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <!-- /example -->
-
-
-
-          <h2 id="tables-bordered">
-            Bordered table
-          </h2>
-          <p>
-            Add
-            <code>
-              .table-bordered
-            </code>
-            for borders on all sides of the table and cells.
-          </p>
-          <div class="bs-example">
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th>
-                    #
-                  </th>
-                  <th>
-                    First Name
-                  </th>
-                  <th>
-                    Last Name
-                  </th>
-                  <th>
-                    Username
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td rowspan="2">
-                    1
-                  </td>
-                  <td>
-                    Mark
-                  </td>
-                  <td>
-                    Otto
-                  </td>
-                  <td>
-                    @mdo
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Mark
-                  </td>
-                  <td>
-                    Otto
-                  </td>
-                  <td>
-                    @TwBootstrap
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    2
-                  </td>
-                  <td>
-                    Jacob
-                  </td>
-                  <td>
-                    Thornton
-                  </td>
-                  <td>
-                    @fat
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    3
-                  </td>
-                  <td colspan="2">
-                    Larry the Bird
-                  </td>
-                  <td>
-                    @twitter
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <!-- /example -->
-
-
-
-          <h2 id="tables-hover-rows">
-            Hover rows
-          </h2>
-          <p>
-            Add
-            <code>
-              .table-hover
-            </code>
-            to enable a hover state on table rows within a
-            <code>
-              &lt;tbody&gt;
-            </code>
-            .
-          </p>
-          <div class="bs-example">
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>
-                    #
-                  </th>
-                  <th>
-                    First Name
-                  </th>
-                  <th>
-                    Last Name
-                  </th>
-                  <th>
-                    Username
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    1
-                  </td>
-                  <td>
-                    Mark
-                  </td>
-                  <td>
-                    Otto
-                  </td>
-                  <td>
-                    @mdo
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    2
-                  </td>
-                  <td>
-                    Jacob
-                  </td>
-                  <td>
-                    Thornton
-                  </td>
-                  <td>
-                    @fat
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    3
-                  </td>
-                  <td colspan="2">
-                    Larry the Bird
-                  </td>
-                  <td>
-                    @twitter
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <!-- /example -->
-
-
-
-          <h2 id="tables-condensed">
-            Condensed table
-          </h2>
-          <p>
-            Add
-            <code>
-              .table-condensed
-            </code>
-            to make tables more compact by cutting cell padding in half.
-          </p>
-          <div class="bs-example">
-            <table class="table table-condensed">
-              <thead>
-                <tr>
-                  <th>
-                    #
-                  </th>
-                  <th>
-                    First Name
-                  </th>
-                  <th>
-                    Last Name
-                  </th>
-                  <th>
-                    Username
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    1
-                  </td>
-                  <td>
-                    Mark
-                  </td>
-                  <td>
-                    Otto
-                  </td>
-                  <td>
-                    @mdo
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    2
-                  </td>
-                  <td>
-                    Jacob
-                  </td>
-                  <td>
-                    Thornton
-                  </td>
-                  <td>
-                    @fat
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    3
-                  </td>
-                  <td colspan="2">
-                    Larry the Bird
-                  </td>
-                  <td>
-                    @twitter
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <!-- /example -->
-
-
-
-          <h2 id="tables-contextual-classes">
-            Contextual classes
-          </h2>
-          <p>
-            Use contextual classes to color table rows or individual cells.
-          </p>
+              <tfoot>
+                  <tr>
+                      <th>Name</th>
+                      <th>Position</th>
+                      <th>Office</th>
+                      <th>Extn.</th>
+                      <th>Start date</th>
+                      <th>Salary</th>
+                  </tr>
+              </tfoot>
+          </table>
+            
           <div class="table-responsive">
-            <table class="table table-bordered table-striped">
-              <colgroup>
-                <col class="col-xs-1">
-                <col class="col-xs-7">
-              </colgroup>
-              <thead>
-                <tr>
-                  <th>
-                    Class
-                  </th>
-                  <th>
-                    Description
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <code>
-                      .active
-                    </code>
-                  </td>
-                  <td>
-                    Applies the hover color to a particular row or cell
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <code>
-                      .success
-                    </code>
-                  </td>
-                  <td>
-                    Indicates a successful or positive action
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <code>
-                      .info
-                    </code>
-                  </td>
-                  <td>
-                    Indicates a neutral informative change or action
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <code>
-                      .warning
-                    </code>
-                  </td>
-                  <td>
-                    Indicates a warning that might need attention
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <code>
-                      .danger
-                    </code>
-                  </td>
-                  <td>
-                    Indicates a dangerous or potentially negative action
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="bs-example">
             <table class="table">
               <thead>
                 <tr>
@@ -605,29 +141,47 @@ exit;
                     #
                   </th>
                   <th>
-                    Column heading
+                    Nombre
                   </th>
                   <th>
-                    Column heading
+                    Descripción
                   </th>
                   <th>
-                    Column heading
+                    Proveedor
+                  </th>
+                  <th>
+                    Sitio web
+                  </th>
+                  <th>
+                    Precio compra
+                  </th>
+                  <th>
+                    Precio Venta
                   </th>
                 </tr>
               </thead>
               <tbody>
-                <tr class="active">
+                <tr>
                   <td>
                     1
                   </td>
                   <td>
-                    Column content
+                    Table cell
                   </td>
                   <td>
-                    Column content
+                    Table cell
                   </td>
                   <td>
-                    Column content
+                    Table cell
+                  </td>
+                  <td>
+                    Table cell
+                  </td>
+                  <td>
+                    Table cell
+                  </td>
+                  <td>
+                    Table cell
                   </td>
                 </tr>
                 <tr>
@@ -635,347 +189,69 @@ exit;
                     2
                   </td>
                   <td>
-                    Column content
+                    Table cell
                   </td>
                   <td>
-                    Column content
+                    Table cell
                   </td>
                   <td>
-                    Column content
+                    Table cell
+                  </td>
+                  <td>
+                    Table cell
+                  </td>
+                  <td>
+                    Table cell
+                  </td>
+                  <td>
+                    Table cell
                   </td>
                 </tr>
-                <tr class="success">
+                <tr>
                   <td>
                     3
                   </td>
                   <td>
-                    Column content
+                    Table cell
                   </td>
                   <td>
-                    Column content
+                    Table cell
                   </td>
                   <td>
-                    Column content
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    4
+                    Table cell
                   </td>
                   <td>
-                    Column content
+                    Table cell
                   </td>
                   <td>
-                    Column content
+                    Table cell
                   </td>
                   <td>
-                    Column content
-                  </td>
-                </tr>
-                <tr class="info">
-                  <td>
-                    5
-                  </td>
-                  <td>
-                    Column content
-                  </td>
-                  <td>
-                    Column content
-                  </td>
-                  <td>
-                    Column content
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    6
-                  </td>
-                  <td>
-                    Column content
-                  </td>
-                  <td>
-                    Column content
-                  </td>
-                  <td>
-                    Column content
-                  </td>
-                </tr>
-                <tr class="warning">
-                  <td>
-                    7
-                  </td>
-                  <td>
-                    Column content
-                  </td>
-                  <td>
-                    Column content
-                  </td>
-                  <td>
-                    Column content
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    8
-                  </td>
-                  <td>
-                    Column content
-                  </td>
-                  <td>
-                    Column content
-                  </td>
-                  <td>
-                    Column content
-                  </td>
-                </tr>
-                <tr class="danger">
-                  <td>
-                    9
-                  </td>
-                  <td>
-                    Column content
-                  </td>
-                  <td>
-                    Column content
-                  </td>
-                  <td>
-                    Column content
+                    Table cell
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <!-- /example -->
+          <!-- /.table-responsive -->
 
-
-
-          <h2 id="tables-responsive">
-            Responsive tables
-          </h2>
-          <p>
-            Create responsive tables by wrapping any
-            <code>
-              .table
-            </code>
-            in
-            <code>
-              .table-responsive
-            </code>
-            to make them scroll horizontally up to small devices (under 768px). When viewing on anything larger than 768px wide, you will not see any difference in these tables.
-          </p>
-          <div class="bs-example mar-b-30">
-            <div class="table-responsive">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>
-                      #
-                    </th>
-                    <th>
-                      Table heading
-                    </th>
-                    <th>
-                      Table heading
-                    </th>
-                    <th>
-                      Table heading
-                    </th>
-                    <th>
-                      Table heading
-                    </th>
-                    <th>
-                      Table heading
-                    </th>
-                    <th>
-                      Table heading
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      1
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      2
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      3
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <!-- /.table-responsive -->
-
-            <div class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>
-                      #
-                    </th>
-                    <th>
-                      Table heading
-                    </th>
-                    <th>
-                      Table heading
-                    </th>
-                    <th>
-                      Table heading
-                    </th>
-                    <th>
-                      Table heading
-                    </th>
-                    <th>
-                      Table heading
-                    </th>
-                    <th>
-                      Table heading
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      1
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      2
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      3
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                    <td>
-                      Table cell
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <!-- /.table-responsive -->
-          </div>
-          <!-- /example -->
+         
 
         </div>
       </div>
     </div>
     <!--container end-->
 
-    <?php include('footer.php'); ?>
+    <?php 
+    session_start();
+
+    if (isset($_SESSION['loggedin']) & $_SESSION['loggedin'] == true)
+    {
+      include('footer-admin.php'); 
+    }else{
+      include('footer.php');
+    }
+    ?>
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="js/jquery.js">
@@ -1001,6 +277,71 @@ exit;
     <script src="js/wow.min.js">
     </script>
     <script>
+      var editor; // use a global for the submit and return data rendering in the examples
+ 
+$(document).ready(function() {
+    editor = new $.fn.dataTable.Editor( {
+              ajax: "staff.php",
+              table: "#example",
+              fields: [ {
+                      label: "First name:",
+                      name: "first_name"
+                  }, {
+                      label: "Last name:",
+                      name: "last_name"
+                  }, {
+                      label: "Position:",
+                      name: "position"
+                  }, {
+                      label: "Office:",
+                      name: "office"
+                  }, {
+                      label: "Extension:",
+                      name: "extn"
+                  }, {
+                      label: "Start date:",
+                      name: "start_date",
+                      type: 'datetime'
+                  }, {
+                      label: "Salary:",
+                      name: "salary"
+                  }
+              ]
+          } );
+       
+          var table = $('#example').DataTable( {
+              lengthChange: false,
+              ajax: "staff.php",
+              columns: [
+                  { data: null, render: function ( data, type, row ) {
+                      // Combine the first and last names into a single table field
+                      return data.first_name+' '+data.last_name;
+                  } },
+                  { data: "position" },
+                  { data: "office" },
+                  { data: "extn" },
+                  { data: "start_date" },
+                  { data: "salary", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) }
+              ],
+              select: true
+          } );
+       
+          // Display the buttons
+          new $.fn.dataTable.Buttons( table, [
+              { extend: "create", editor: editor },
+              { extend: "edit",   editor: editor },
+              { extend: "remove", editor: editor }
+          ] );
+       
+          table.buttons().container()
+              .appendTo( $('.col-sm-6:eq(0)', table.table().container() ) );
+      } );
+
+
+
+      $(document).ready(function() {
+        $('#link-administrator').addClass('active');
+      });
       wow = new WOW(
         {
           boxClass:     'wow',      // default

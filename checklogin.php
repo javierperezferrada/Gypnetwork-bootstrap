@@ -39,7 +39,7 @@ if($count == 1){
 	 $_SESSION['loggedin'] = true;
 	 $_SESSION['username'] = $username;
 	 $_SESSION['start'] = time();
-	 $_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;
+	 $_SESSION['expire'] = $_SESSION['start'] + (60 * 60) ;
 
 	header("Location:administrador");
 

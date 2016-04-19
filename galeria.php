@@ -213,7 +213,16 @@
         </div>            
     </div>
 
-    <?php include('footer.php'); ?>
+    <?php 
+    session_start();
+
+    if (isset($_SESSION['loggedin']) & $_SESSION['loggedin'] == true)
+    {
+      include('footer-admin.php'); 
+    }else{
+      include('footer.php');
+    }
+    ?>
 
     <!-- js placed at the end of the document so the pages load faster
     <script src="js/jquery.js"></script> -->

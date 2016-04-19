@@ -87,9 +87,9 @@
                 Gypnetwork Limitada
               </h1>
               <p>
-                Empresa líder en tecnología de seguridad y telecomunicaciones.
+                Empresa líder en tecnología de seguridad y telecómunicaciones.
               </p>
-              <button class="btn btn-lg btn-login btn-block" onClick="parent.location='ingresar'" >Ingresar</button>
+              <button class="btn btn-lg btn-login btn-block" onClick="parent.location='salir'" >Salir</button>
             </div>
           </div>
         </div>

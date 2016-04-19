@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index">GyP<span>Network</span></a>
+          <a class="navbar-brand" href="/">GyP<span>Network</span></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -27,7 +27,7 @@
             <li class='dropdown' id='link-contact'>
               <a href="contacto">Contacto</a>
             </li>
-            <li class='dropdown' id='link-contact'>
+            <li class='dropdown' id='link-administrator'>
               <a href="administrador">Administrador</a>
             </li>
           </ul>
