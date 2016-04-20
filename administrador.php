@@ -110,29 +110,7 @@ exit;
           <p>
             En esta sección de la aplicación web, usted puede agregar, editar o eliminar, los productos que se muestran en su sitio web.
           </p>
-          <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-              <thead>
-                  <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Extn.</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
-                  </tr>
-              </thead>
-              <tfoot>
-                  <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Extn.</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
-                  </tr>
-              </tfoot>
-          </table>
-            
+    
           <div class="table-responsive">
             <table class="table">
               <thead>
@@ -150,9 +128,6 @@ exit;
                     Proveedor
                   </th>
                   <th>
-                    Sitio web
-                  </th>
-                  <th>
                     Precio compra
                   </th>
                   <th>
@@ -161,75 +136,69 @@ exit;
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>
-                    1
-                  </td>
-                  <td>
-                    Table cell
-                  </td>
-                  <td>
-                    Table cell
-                  </td>
-                  <td>
-                    Table cell
-                  </td>
-                  <td>
-                    Table cell
-                  </td>
-                  <td>
-                    Table cell
-                  </td>
-                  <td>
-                    Table cell
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    2
-                  </td>
-                  <td>
-                    Table cell
-                  </td>
-                  <td>
-                    Table cell
-                  </td>
-                  <td>
-                    Table cell
-                  </td>
-                  <td>
-                    Table cell
-                  </td>
-                  <td>
-                    Table cell
-                  </td>
-                  <td>
-                    Table cell
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    3
-                  </td>
-                  <td>
-                    Table cell
-                  </td>
-                  <td>
-                    Table cell
-                  </td>
-                  <td>
-                    Table cell
-                  </td>
-                  <td>
-                    Table cell
-                  </td>
-                  <td>
-                    Table cell
-                  </td>
-                  <td>
-                    Table cell
-                  </td>
-                </tr>
+                <?php
+                mysql_set_charset('utf8');
+                // Conectando, seleccionando la base de datos
+                $link = mysql_connect('localhost', 'gypnetwo_admin', 'k6yF7vc5l(3y')
+                    or die('No se pudo conectar: ' . mysql_error());
+                mysql_select_db('gypnetwo_gypnetwork') or die('No se pudo seleccionar la base de datos');
+
+                // Realizar una consulta MySQL
+                $query = 'SELECT p.idProducto,p.valor_neto, p.valor_total, p.nombre, p.descripcion, p.imagen, y.nombre AS proveedor FROM Producto p, Proveedor y WHERE p.idProveedor = y.idProveedor';
+
+                $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+
+                // Imprimir los resultados en HTML
+                while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+                    echo '<div class="thumbnail"><img class="img-responsive" src="'.$line['imagen'].'" alt=""><div class="caption-full">
+                        <h4 class="pull-right">$'.number_format($line["valor_total"], 0, ",", ".").'</h4>
+                        <h4><a href="#">'.$line['nombre'].'</a>
+                        </h4>
+                        <p>'.$line['descripcion'].'</p>
+                    </div>
+                    <!--
+                    <div class="ratings">
+                        <p class="pull-right">3 reviews</p>
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            4.0 estrellas
+                        </p>
+                    </div>
+                  -->
+                </div>';
+                    echo '<tr>
+                          <td>
+                            '.$line['idProducto'].'
+                          </td>
+                          <td>
+                            '.$line['nombre'].'
+                          </td>
+                          <td>
+                            '.$line['descripcion'].'
+                          </td>
+                          <td>
+                            '.$line['proveedor'].'
+                          </td>
+                          <td>
+                            '.$line['valor_neto'].'
+                          </td>
+                          <td>
+                            '.$line['valor_total'].'
+                          </td>
+                        </tr>';
+
+                }
+                
+                // Liberar resultados
+                mysql_free_result($result);
+
+                // Cerrar la conexión
+                mysql_close($link);
+                ?>
               </tbody>
             </table>
           </div>
