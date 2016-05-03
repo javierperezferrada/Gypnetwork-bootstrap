@@ -150,26 +150,6 @@ exit;
 
                 // Imprimir los resultados en HTML
                 while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
-                    echo '<div class="thumbnail"><img class="img-responsive" src="'.$line['imagen'].'" alt=""><div class="caption-full">
-                        <h4 class="pull-right">$'.number_format($line["valor_total"], 0, ",", ".").'</h4>
-                        <h4><a href="#">'.$line['nombre'].'</a>
-                        </h4>
-                        <p>'.$line['descripcion'].'</p>
-                    </div>
-                    <!--
-                    <div class="ratings">
-                        <p class="pull-right">3 reviews</p>
-                        <p>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            4.0 estrellas
-                        </p>
-                    </div>
-                  -->
-                </div>';
                     echo '<tr>
                           <td>
                             '.$line['idProducto'].'
@@ -199,8 +179,15 @@ exit;
                 // Cerrar la conexión
                 mysql_close($link);
                 ?>
+                <div >
+
+                </div>
+
               </tbody>
             </table>
+            <div style='float:right' id='new_product_button_content'>
+                <button onClick='view_new_product()' class='btn-success btn-lg'>Nuevo</button>
+            </div>
           </div>
           <!-- /.table-responsive -->
 
@@ -210,6 +197,65 @@ exit;
       </div>
     </div>
     <!--container end-->
+
+    <div class="component-bg" id='new_product' style='display:none'>
+      <div class="container">
+
+        <div class="bs-docs-section">
+            <h2>Ingrese un nuevo producto</h2>
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="name">Nombre:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="name" placeholder="Nombre del producto">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="description">Descripción:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="description" placeholder="Descripción del producto">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="idProveedor">Id Proveedor:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="idProveedor" placeholder="Id del proveedor del producto">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="valor_net">Valor Neto:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="valor_neto" placeholder="Valor que cuesta en el proveedor con iva">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="valor_total">Precio de venta:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="valor_total" placeholder="Precio de venta del producto">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="codigo-proveedor">Codigo del producto:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="codigo-proveedor" placeholder="Codigo del producto en el proveedor">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="codigo-proveedor">Imagen:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="codigo-proveedor" placeholder="Codigo del producto en el proveedor">
+                </div>
+              </div>
+              <div class="form-group"> 
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="button" class="btn-danger btn-lg" onClick='cancel_new_product()'>Cancelar</button>
+                  <button type="submit" class="btn-success btn-lg">Guardar</button>
+                </div>
+              </div>
+            </form>
+        </div>
+      </div>
+  </div>
 
     <?php 
     session_start();
@@ -246,6 +292,15 @@ exit;
     <script src="js/wow.min.js">
     </script>
     <script>
+    function view_new_product(){
+      $('#new_product').show("slow");
+      $('#new_product_button_content').hide('faster');
+
+    }
+    function cancel_new_product(){
+      $('#new_product').hide("slow");
+      $('#new_product_button_content').show('faster');
+    }
       var editor; // use a global for the submit and return data rendering in the examples
  
 $(document).ready(function() {
