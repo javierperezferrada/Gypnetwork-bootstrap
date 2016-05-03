@@ -27,6 +27,9 @@
             <li class='dropdown' id='link-contact'>
               <a href="contacto">Contacto</a>
             </li>
+            <li class='dropdown' id='link-administrator'>
+              <a href="administrador">Administrador</a>
+            </li>
           </ul>
         </div>
       </div>
