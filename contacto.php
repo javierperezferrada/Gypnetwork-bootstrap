@@ -101,7 +101,16 @@
   </head>
 
   <body>
-    <?php include('header.php'); ?>
+    <?php 
+    session_start();
+
+    if (isset($_SESSION['loggedin']) & $_SESSION['loggedin'] == true)
+    {
+      include('header-admin.php'); 
+    }else{
+      include('header.php');
+    }
+    ?>
 
     <!--breadcrumbs start-->
     <div class="breadcrumbs">
@@ -318,7 +327,16 @@
 
 
 
-    <?php include('footer.php'); ?>
+    <?php 
+    session_start();
+
+    if (isset($_SESSION['loggedin']) & $_SESSION['loggedin'] == true)
+    {
+      include('footer-admin.php'); 
+    }else{
+      include('footer.php');
+    }
+    ?>
 
     <!-- Modal HTML -->
     <div id="myModal" class="modal fade">
@@ -420,7 +438,6 @@
                     email: "Introduce un email valido."
                 },
                 "phone": {
-                    required: "Introduce tu numero de teléfono.",
                     number: "Introduce un numero válido.",
                     maxlength: "Debe contener 9 dígitos.",
                     minlength: "Debe contener 9 dígitos."

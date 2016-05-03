@@ -1,28 +1,35 @@
 <?php
-// Conectando, seleccionando la base de datos
-$link = mysql_connect('localhost', 'gypnetwo_admin', 'k6yF7vc5l(3y')
-    or die('No se pudo conectar: ' . mysql_error());
-echo 'Connected successfully';
-mysql_select_db('gypnetwo_gypnetwork') or die('No se pudo seleccionar la base de datos');
+    session_start();
+    include('acceso_db.php');
+?> 
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+            Bienvenido: <a href="perfil.php?id=<?=$_SESSION['usuario_id']?>"><strong><?=$_SESSION['usuario_nombre']?></strong></a>
+ 
+            <a href="logout.php">Cerrar Sesión</a>
+    
+            <a href="registro.php">Registrarse</a> | <a href="acceso.php">Ingresar</a>
 
-// Realizar una consulta MySQL
-$query = 'SELECT * FROM Producto';
-$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+<?php
+        if(isset($_SESSION['usuario_nombre'])) {
+    
+            echo 'Bienvenido: <a href="perfil.php?id=<?=$_SESSION["usuario_id"]?>"><strong><?=$_SESSION["usuario_nombre"]?></strong></a>
+ 
+            <a href="logout.php">Cerrar Sesión</a>'
+   
+        }else {
+   
+            echo '<a href="registro.php">Registrarse</a> | <a href="acceso.php">Ingresar</a>'
+    
+        }
+    ?> 
 
-// Imprimir los resultados en HTML
-echo "<table>\n";
-while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
-    echo "\t<tr>\n";
-    foreach ($line as $col_value) {
-        echo "\t\t<td>$col_value</td>\n";
-    }
-    echo "\t</tr>\n";
-}
-echo "</table>\n";
 
-// Liberar resultados
-mysql_free_result($result);
-
-// Cerrar la conexión
-mysql_close($link);
-?>
+</body>
+</html>
