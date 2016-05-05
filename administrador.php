@@ -7,7 +7,7 @@ if (isset($_SESSION['loggedin']) & $_SESSION['loggedin'] == true)
 }
 else
 {
-echo "Esta pagina es solo para usuarios registrados.<br>";
+echo "Esta página es solo para usuarios registrados.<br>";
 echo "<a href='ingresar'>Iniciar Sesi&oacuten!</a>";
 
 exit;
@@ -17,7 +17,7 @@ $now = time(); // checking the time now when home page starts
 if($now > $_SESSION['expire'])
 {
 session_destroy();
-echo "Su sesion a terminado, <a href='/'>
+echo "Su sesion a terminado, <a href='ingresar'>
       Necesita Hacer Login</a>";
 exit;
 }
@@ -116,52 +116,50 @@ exit;
               <thead>
                 <tr>
                   <th>
-                    #
+                    Proveedor
+                  </th>
+                  <th>
+                    Código Producto
                   </th>
                   <th>
                     Nombre
                   </th>
                   <th>
+                    Precio compra c/i
+                  </th>
+                  <th>
+                    Precio Venta c/i
+                  </th>
+                  <th>
+                    Tags
+                  </th>
+                  <th>
                     Descripción
-                  </th>
-                  <th>
-                    Proveedor
-                  </th>
-                  <th>
-                    Precio compra
-                  </th>
-                  <th>
-                    Precio Venta
                   </th>
                 </tr>
               </thead>
               <tbody>
                 <?php
-                mysql_set_charset('utf8');
-                // Conectando, seleccionando la base de datos
-                $link = mysql_connect('localhost', 'gypnetwo_admin', 'k6yF7vc5l(3y')
-                    or die('No se pudo conectar: ' . mysql_error());
-                mysql_select_db('gypnetwo_gypnetwork') or die('No se pudo seleccionar la base de datos');
-
+                include('acceso_db.php');
                 // Realizar una consulta MySQL
-                $query = 'SELECT p.idProducto,p.valor_neto, p.valor_total, p.nombre, p.descripcion, p.imagen, y.nombre AS proveedor FROM Producto p, Proveedor y WHERE p.idProveedor = y.idProveedor';
+                $query = 'SELECT p.idProducto,p.valor_neto, p.valor_total, p.nombre, p.descripcion,p.tags,p.codigo_proveedor, p.imagen, y.nombre AS proveedor FROM Producto p, Proveedor y WHERE p.idProveedor = y.idProveedor ORDER BY p.idProducto';
 
                 $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 
                 // Imprimir los resultados en HTML
                 while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
                     echo '<tr>
-                          <td>
+                          <td style="display:none">
                             '.$line['idProducto'].'
                           </td>
                           <td>
-                            '.$line['nombre'].'
-                          </td>
-                          <td>
-                            '.$line['descripcion'].'
-                          </td>
-                          <td>
                             '.$line['proveedor'].'
+                          </td>
+                          <td>
+                            '.$line['codigo_proveedor'].'
+                          </td>
+                          <td>
+                            '.$line['nombre'].'
                           </td>
                           <td>
                             '.$line['valor_neto'].'
@@ -169,6 +167,12 @@ exit;
                           <td>
                             '.$line['valor_total'].'
                           </td>
+                          <td>
+                            '.$line['tags'].'
+                          </td>
+                          <td>
+                            '.$line['descripcion'].'
+                          </td> 
                         </tr>';
 
                 }
@@ -203,11 +207,41 @@ exit;
 
         <div class="bs-docs-section">
             <h2>Ingrese un nuevo producto</h2>
-            <form class="form-horizontal" role="form">
+            <form class="form-horizontal" role="form" id='product_form' method='POST'>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="idProveedor">Proveedor:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="idProveedor" placeholder="Ejemplo: 1=sstt, 2=topcam ">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="codigo_proveedor">Código del producto:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="codigo_proveedor" placeholder="Código dado por el proveedor">
+                </div>
+              </div>
               <div class="form-group">
                 <label class="control-label col-sm-2" for="name">Nombre:</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" name="name" placeholder="Nombre del producto">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="valor_neto">Precio Compra c/i:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="valor_neto" placeholder="Precio de compra con iva">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="valor_total">Precio Venta c/i:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="valor_total" placeholder="Precio de venta del producto">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="tags">Tags separados por coma:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="tags" placeholder="Ejemplo: camara,instalacion,valdivia">
                 </div>
               </div>
               <div class="form-group">
@@ -217,39 +251,15 @@ exit;
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-2" for="idProveedor">Id Proveedor:</label>
+                <label class="control-label col-sm-2" for="imagen">Imagen:</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="idProveedor" placeholder="Id del proveedor del producto">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-sm-2" for="valor_net">Valor Neto:</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" name="valor_neto" placeholder="Valor que cuesta en el proveedor con iva">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-sm-2" for="valor_total">Precio de venta:</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" name="valor_total" placeholder="Precio de venta del producto">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-sm-2" for="codigo-proveedor">Codigo del producto:</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" name="codigo-proveedor" placeholder="Codigo del producto en el proveedor">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-sm-2" for="codigo-proveedor">Imagen:</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" name="codigo-proveedor" placeholder="Codigo del producto en el proveedor">
+                  <input type="text" class="form-control" name="imagen" placeholder="Ejemplo: mi_imagen.jpg">
                 </div>
               </div>
               <div class="form-group"> 
                 <div class="col-sm-offset-2 col-sm-10">
                   <button type="button" class="btn-danger btn-lg" onClick='cancel_new_product()'>Cancelar</button>
-                  <button type="submit" class="btn-success btn-lg">Guardar</button>
+                  <button type="button" class="btn-success btn-lg" onClick='save_product()'>Guardar</button>
                 </div>
               </div>
             </form>
@@ -292,6 +302,16 @@ exit;
     <script src="js/wow.min.js">
     </script>
     <script>
+    function save_product(){
+      $.ajax({
+        url: "save_product.php",
+        type: "POST",
+        data: $("#product_form").serialize(),
+        success: function(response){
+          alert(response);
+        }
+      }); 
+    }
     function view_new_product(){
       $('#new_product').show("slow");
       $('#new_product_button_content').hide('faster');
